@@ -1,5 +1,10 @@
 apiVersion: skaffold/v2beta16
 kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+      - ./infra/k8s-dev/*
 build:
   artifacts:
     - image: omrilevy0197/auth
@@ -50,7 +55,4 @@ build:
         dockerfile: Dockerfile
   local:
     push: false
-deploy:
-  kubectl:
-    manifests:
-      - ./infra/k8s/*
+
