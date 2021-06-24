@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
-import { MongoMemoryServer } from "mongodb-memory-server";
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-import genFakeMongoId from "../../../tickets/src/routes/__test__/utils/functions/genFakeMongoId";
+import mongoose from 'mongoose';
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+import genFakeMongoId from '../routes/__test__/utils/functions/genFakeMongoId';
 
 declare global {
   namespace NodeJS {
