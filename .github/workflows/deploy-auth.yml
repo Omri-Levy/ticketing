@@ -13,7 +13,8 @@ jobs:
       - uses: actions/checkout@v2
       - run: cd auth && docker build -t omrilevy0197/auth .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        - run: docker push omrilevy0197/auth
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - run: docker push omrilevy0197/auth
+
