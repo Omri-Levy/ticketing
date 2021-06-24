@@ -35,7 +35,7 @@ const start = async () => {
     );
 
     natsWrapper.stan.on(`close`, () => {
-      console.log(`NATS connection closed..`);
+      console.log(`NATS connection closed.`);
 
       // closes connection to NATS and re-connects as Kubernetes pods get
       // created and destroyed
