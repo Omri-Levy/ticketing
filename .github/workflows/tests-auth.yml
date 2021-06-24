@@ -1,14 +1,17 @@
 name: tests-auth
 
 on:
-  pull_request
-  
+  pull_request:
+    paths:
+      - 'auth/**'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
       JWT_SECRET: test-jwt-secret
     steps:
       - uses: actions/checkout@v2
       - run: cd auth && npm install && npm run test:ci
-      
+
