@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import {Props} from '../utils/pages/index/types';
 
+// @ts-ignore
 const Home: NextPage<Props> = ({tickets}) => {
 	const ticketList = tickets?.map((ticket) => (
 		<tr key={ticket.id}>
@@ -38,6 +39,7 @@ const Home: NextPage<Props> = ({tickets}) => {
 	);
 };
 
+// @ts-ignore
 Home.getInitialProps = async (context, client) => {
 	const {data} = await client.get(`/api/tickets`);
 

@@ -3,6 +3,7 @@ import {Props} from '../../utils/pages/[ticketId]/types';
 import useRequest from '../../hooks/useRequest';
 import Router from 'next/router';
 
+// @ts-ignore
 const showTicket: NextPage<Props> = ({ticket}) => {
 	const {fetch, errors} = useRequest({
 		url: `/api/orders`,
@@ -28,6 +29,7 @@ const showTicket: NextPage<Props> = ({ticket}) => {
 	);
 };
 
+// @ts-ignore
 showTicket.getInitialProps = async (context, client) => {
 	const {ticketId} = context.query;
 	const {data} = await client.get(`/api/tickets/${ticketId}`);

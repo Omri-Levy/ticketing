@@ -2,7 +2,9 @@ FROM node:alpine
 
 WORKDIR /app
 COPY package.json .
-RUN npm install --only=prod
+RUN npm install
 COPY . .
 
-CMD ["npm", "start"]
+RUN npx tsc
+ENV NODE_ENV production
+CMD ["node", "build/index.js"]

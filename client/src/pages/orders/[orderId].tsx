@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import Router from 'next/router';
 
+// @ts-ignore
 const showOrder: NextPage<Props> = ({order, currentUser}) => {
 	const [secondsLeft, setSecondsLeft] = useState(0);
 	const {fetch, errors} = useRequest({
@@ -56,6 +57,7 @@ const showOrder: NextPage<Props> = ({order, currentUser}) => {
 	);
 };
 
+// @ts-ignore
 showOrder.getInitialProps = async (context, client) => {
 	const {orderId} = context.query;
 	const {data} = await client.get(`/api/orders/${orderId}`);
