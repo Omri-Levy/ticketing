@@ -5,6 +5,7 @@ import axios from 'axios';
 // server-sided, due to Next.js + Kubernetes behaviour.
 const axiosClient = ({req}) => {
 	if (isServerSide()) {
+
 		return axios.create({
 			baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 			headers: req.headers,
