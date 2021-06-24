@@ -100,7 +100,7 @@ describe(`cancel order`, () => {
       .send();
 
     expect(natsWrapper.stan.publish).toHaveBeenCalled();
-    expect((natsWrapper.stan.publish as jest.Mock).mock.calls[0][0]).toBe(
+    expect((natsWrapper.stan.publish as jest.Mock).mock.calls[1][0]).toBe(
       Subjects.ORDER_CANCELLED,
     );
   });
