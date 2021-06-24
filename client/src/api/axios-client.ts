@@ -6,7 +6,7 @@ import axios from 'axios';
 const axiosClient = ({req}) => {
 	if (isServerSide()) {
 		const baseURL = process.env.NODE_ENV === `production`
-			? `https://www.omrilevy-ticketing-app.xyz/`
+			? `http://www.omrilevy-ticketing-app.xyz/`
 			: `http://ingress-nginx-controller.ingress-nginx.svc.cluster.local`;
 
 		return axios.create({
