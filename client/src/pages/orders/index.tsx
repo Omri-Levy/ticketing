@@ -1,6 +1,7 @@
-import {FunctionComponent} from 'react';
+import {NextPage} from 'next';
 
-const MyOrders: FunctionComponent = ({orders}) => {
+// @ts-ignore
+const MyOrders: NextPage = ({orders}) => {
 
 	return (
 		<ul>
@@ -13,6 +14,7 @@ const MyOrders: FunctionComponent = ({orders}) => {
 	);
 };
 
+// @ts-ignore
 MyOrders.getInitialProps = async (context, client) => {
 	const {data} = await client.get(`/api/orders`);
 

@@ -8,7 +8,7 @@ interface Args {
 }
 
 type HookReturns = ({url, method, body}: Args) => ({
-	fetch: () => Promise;
+	fetch: (props?: Record<string | number | symbol, any>) => Promise;
 	errors?: { message: string, field?: string }[];
 })
 
