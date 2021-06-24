@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest --watchAll --no-cache",
+    "test:ci": "jest",    
     "start": "ts-node-dev --poll src/index.ts",
     "format": "eslint --fix src/**/*"
   },
