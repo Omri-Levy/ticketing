@@ -1,15 +1,17 @@
 name: tests-orders
 
 on:
-  pull_request
-  
+  pull_request:
+    paths:
+      - 'orders/**'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NODE_TLS_REJECT_UNAUTHORIZED: "0"
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
       JWT_SECRET: test-jwt-secret
     steps:
       - uses: actions/checkout@v2
       - run: cd orders && npm install && npm run test:ci
-      
+
