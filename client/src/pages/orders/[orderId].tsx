@@ -47,7 +47,7 @@ const showOrder: NextPage<Props> = ({order, currentUser}) => {
 			{secondsLeft} seconds until order expires.
 			<StripeCheckout
 				token={(token) => fetch({token: token?.id})}
-				stripeKey={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+				stripeKey={`pk_test_51J5mAKIRdzKR5zq4XmZoObIYJvuhXJuZeTIDDeTEVwwXgNLCSxYeoqKZZjnkBBSyCVsSev0EExT68JWdmkHGcZal00IyUAEWXP`}
 				amount={order.ticket.price * 100}
 				email={currentUser.email}
 			/>

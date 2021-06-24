@@ -3,8 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import {Props} from '../utils/pages/index/types';
 
-// root / tickets for sale
-const Home: NextPage<Props> = ({currentUser, tickets}) => {
+const Home: NextPage<Props> = ({tickets}) => {
 	const ticketList = tickets?.map((ticket) => (
 		<tr key={ticket.id}>
 			<td>{ticket.title}</td>
