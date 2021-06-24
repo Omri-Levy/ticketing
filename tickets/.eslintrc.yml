@@ -1,0 +1,35 @@
+env:
+  browser: true
+  es2021: true
+  jest/globals: true
+extends:
+  - airbnb-base
+  - plugin:prettier/recommended
+  - plugin:import/recommended
+  - plugin:import/typescript
+  - plugin:security/recommended
+  - plugin:node/recommended
+  - plugin:jest/recommended
+  - plugin:jest/style
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: 2021
+  sourceType: module
+plugins:
+  - '@typescript-eslint'
+  - 'prettier'
+  - 'security'
+  - 'jest'
+rules: {
+  prettier/prettier: [ 'error', {
+    singleQuote: true,
+    trailingComma: 'all',
+  } ],
+  quotes: [ 'error', 'backtick' ],
+  import/extensions: 'off',
+}
+settings:
+  node: {
+    tryExtensions: [ '.js', '.ts', '.d.ts', '.json', '.node' ]
+  }
+
