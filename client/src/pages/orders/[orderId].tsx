@@ -4,6 +4,7 @@ import useRequest from '../../hooks/useRequest';
 import {useEffect, useState} from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import Router from 'next/router';
+import toDollars from '../../utils/functions/to-dollars';
 
 // @ts-ignore
 const showOrder: NextPage<Props> = ({order, currentUser}) => {
@@ -38,21 +39,39 @@ const showOrder: NextPage<Props> = ({order, currentUser}) => {
 	}, []);
 
 	if (secondsLeft <= 0) {
-		return <div>Order expired.</div>;
+		return (
+			<div className={`w-50 mx-auto card mt-5`}>
+				<div className={`card-body`}>
+					<h1 className={`card-title mb-5`}>Order expired.</h1>
+					<a className={`btn btn-primary`} href={`/`}>
+						Navigate To Homepage
+					</a>
+				</div>
+			</div>
+		);
 	}
 
 
 	return (
-		<div>
-			<h1>{order.ticket.title}</h1>
-			{secondsLeft} seconds until order expires.
-			<StripeCheckout
-				token={(token) => fetch({token: token?.id})}
-				stripeKey={`pk_test_51J5mAKIRdzKR5zq4XmZoObIYJvuhXJuZeTIDDeTEVwwXgNLCSxYeoqKZZjnkBBSyCVsSev0EExT68JWdmkHGcZal00IyUAEWXP`}
-				amount={order.ticket.price * 100}
-				email={currentUser.email}
-			/>
-			{errors}
+		<div className={`w-50 mx-auto card mt-5`}>
+			<div className='card-body'>
+				<h5 className={`card-title`}>Order's Details:</h5>
+				<h6 className={`card-subtitle mb-3`}>{secondsLeft} seconds until
+					order expires.</h6>
+				<p className={`card-text`}>
+					Tickets's Title: {order.ticket.title}
+				</p>
+				<p className={`card-text`}>
+					Ticket's Price: {toDollars(order.ticket.price)}
+				</p>
+				<StripeCheckout
+					token={(token) => fetch({token: token?.id})}
+					stripeKey={`pk_test_51J5mAKIRdzKR5zq4XmZoObIYJvuhXJuZeTIDDeTEVwwXgNLCSxYeoqKZZjnkBBSyCVsSev0EExT68JWdmkHGcZal00IyUAEWXP`}
+					amount={order.ticket.price * 100}
+					email={currentUser.email}
+				/>
+				{errors}
+			</div>
 		</div>
 	);
 };

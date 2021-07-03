@@ -2,13 +2,14 @@ import {NextPage} from 'next';
 import Link from 'next/link';
 import React from 'react';
 import {Props} from '../utils/pages/index/types';
+import toDollars from '../utils/functions/to-dollars';
 
 // @ts-ignore
 const Home: NextPage<Props> = ({tickets}) => {
 	const ticketList = tickets?.map((ticket) => (
 		<tr key={ticket.id}>
 			<td>{ticket.title}</td>
-			<td>{ticket.price}</td>
+			<td>{toDollars(ticket.price)}</td>
 			<td>
 				<Link
 					href={`/tickets/[ticketId]`}
@@ -32,6 +33,13 @@ const Home: NextPage<Props> = ({tickets}) => {
 				</tr>
 				</thead>
 				<tbody>
+				{tickets?.length === 0 && (
+					<tr>
+						<td>No Tickets</td>
+						<td>No Tickets</td>
+						<td>No Tickets</td>
+					</tr>
+				)}
 				{ticketList}
 				</tbody>
 			</table>
