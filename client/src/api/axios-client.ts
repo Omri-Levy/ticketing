@@ -6,7 +6,7 @@ import axios from 'axios';
 const axiosClient = ({req}) => {
 	if (isServerSide()) {
 		return axios.create({
-			baseURL: `http://ingress-nginx-controller.ingress-nginx.svc.cluster.local`,
+			baseURL: `https://omrilevy-ticketing-app.xyz`,
 			headers: req.headers,
 		});
 	} else {
