@@ -3,6 +3,7 @@ interface User {
 	id: string;
 }
 
+// null if not authenticated
 type CurrentUser = User | null;
 
 interface CurrentUserProps {
