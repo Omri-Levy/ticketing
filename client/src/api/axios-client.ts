@@ -6,7 +6,7 @@ import axios from 'axios';
 const axiosClient = ({req}) => {
 	if (isServerSide()) {
 		return axios.create({
-			baseURL: `https://omrilevy-ticketing-app.xyz/`,
+			baseURL: `https://www.omrilevy-ticketing-app.xyz/`,
 			headers: req.headers,
 		});
 	} else {
