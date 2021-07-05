@@ -4,13 +4,28 @@ import {NextPage} from 'next';
 const MyOrders: NextPage = ({orders}) => {
 
 	return (
-		<ul>
+		<table className={`table`}>
+			<thead>
+			<tr>
+				<th scope={`col`}>Order</th>
+				<th scope={`col`}>Status</th>
+			</tr>
+			</thead>
+			<tbody>
+			{orders?.length === 0 && (
+				<tr>
+					<td>No Orders</td>
+					<td>No Orders</td>
+				</tr>
+			)}
 			{orders?.map((order) => (
-				<li key={order.id}>
-					{order.ticket.title} - {order.status}
-				</li>
+				<tr>
+					<td>{order?.ticket.title}</td>
+					<td className={`text-capitalize`}>{order?.status}</td>
+				</tr>
 			))}
-		</ul>
+			</tbody>
+		</table>
 	);
 };
 

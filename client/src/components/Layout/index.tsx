@@ -6,7 +6,9 @@ const Layout: FunctionComponent<Props> = ({children, currentUser}) => (
 	<>
 		<Header currentUser={currentUser}/>
 		<main className={'container'}>
-			<section>{children}</section>
+			<section>
+				{children}
+			</section>
 		</main>
 	</>
 );

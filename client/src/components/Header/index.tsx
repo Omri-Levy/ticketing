@@ -8,6 +8,7 @@ const Header: FunctionComponent<Props> = ({currentUser}) => {
 		!currentUser && {label: `Sign Up`, href: `/auth/signUp`},
 		!currentUser && {label: `Sign In`, href: `/auth/signIn`},
 		currentUser && {label: `My Orders`, href: `/orders`},
+		currentUser && {label: `Buy Tickets`, href: `/`},
 		currentUser && {label: `Sell Tickets`, href: `/tickets/newTicket`},
 		currentUser && {label: `Sign Out`, href: `/auth/signOut`},
 	], [currentUser]);
