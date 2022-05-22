@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: omrilevy0197/client
+          image: omrilevy0197/ticketing-client
 ---
 apiVersion: v1
 kind: Service

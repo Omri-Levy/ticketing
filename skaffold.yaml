@@ -45,7 +45,7 @@ build:
             dest: .
       docker:
         dockerfile: Dockerfile
-    - image: omrilevy0197/client
+    - image: omrilevy0197/ticketing-client
       context: client
       sync:
         infer:
